@@ -51,6 +51,16 @@
     .btn-primary{
       margin: 5%;
     }
+    #selectTipo{
+      width: 20%; 
+    }
+    .col-12{
+      display: flex;
+      column-gap:10% ;
+
+      
+    }
+   
 </style>
 </head>
 <body>
@@ -59,31 +69,42 @@
 <div class="CadProduto">
 
  <div class="cabecalhoCad"> <p>Cadastrar Produtos</p></div>    
+
   <form class="row g-3" action="functionCadastro.php" method="post">
 
     <div class="col-md-6">
-      <label for="inputEmail4" class="form-label" </label>
-      <input type="text" class="form-control" id="inputEmail4" name="produto">Produto
+      <label for="inputEmail4" class="form-label" >Produto</label>
+      <input type="text" class="form-control" id="inputEmail4" name="produto">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label" >Descrição</label>
+      <input type="text" class="form-control" id="inputPassword4" name="descricao">
+    </div>
+  
+    <div class="col-md-6">
+      <label for="inputAddress2" class="form-label" >Valor</label>
+      <input type="number" class="form-control" id="inputAddress2" placeholder="00,00" name="valor">
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Qtde</label>
+      <input type="number" class="form-control" id="inputCity" placeholder="00" name="qtd">
     </div>
 
       <div class="col-md-6">
-        <label for="inputPassword4" class="form-label" >Descrição</label>
-        <input type="text" class="form-control" id="inputPassword4" name="descricao">
-      </div>
-  
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label" >Valor</label>
-          <input type="number" class="form-control" id="inputAddress2" placeholder="00,00" name="valor">
-      
-          <label for="inputCity" class="form-label">Quantidade</label>
-          <input type="number" class="form-control" id="inputCity" placeholder="00" name="qtd">
-        </div>
+      <label for="inputCity" class="form-label">Tipo</label>
+        <select class="form-control" name="tipo" id="selectTipo">
+          <option value="eletronicos">Eletronico</option>
+          <option value="alimento">Alimento</option>
+          <option value="moda">Moda</option>
+        </select>
+    </div>
 
         <button type="submit" class="btn btn-primary">Cadastrar</button>
 
   </form>
 
-      <button type="submit" class="btn btn-primary"> <a href="home.php">Voltar</button> </a>  
+  <a href="home.php"><button type="submit" class="btn btn-primary"> Voltar</button> </a>  
 
 </div>
 

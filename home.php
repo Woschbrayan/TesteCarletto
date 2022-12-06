@@ -9,21 +9,37 @@
                <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
                <title>Home</title>
-               <style>
-                              @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-                              body{
-                              font-family: 'Poppins';         
-                              margin: 0;           
-                              padding: 0; 
-                              }
-                              
-                              .menu{
-                                             text-align: center;
-                                             margin: 5%;
-                              }
-                              </style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      body{
+        font-family: 'Poppins';         
+        margin: 0;           
+        padding: 0; 
+      }
+
+      .menu{
+        text-align: center;
+        text-align: center;
+        position: fixed;
+      }
+      table{
+        margin: 5%;
+      }
+      .btn-group{
+      position: relative;
+      display: -ms-inline-flexbox;
+      display: inline-grid;
+      vertical-align: middle;
+      }   
+      .btn-primary{
+        margin: 5%;
+      }
+      
+      
+</style>
 </head>
 <body>
+
 <div class="menu">
 <div class="btn-group">
 <a href="cadastrarProduto.php">  <button type="button" class="btn btn-primary">Cadastrar Produto</button></a>
@@ -31,46 +47,57 @@
 <a href="alterarSenha.php"><button type="button" class="btn btn-primary">Alterar Senha</button></a>
 </div>
 </div>
+
+
           
 <div class="container ">
-        
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">ID item</th>
-        <th scope="col">item</th>
-        <th scope="col">Qtd</th>
-        <th scope="col">Valor</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>#51647</td>
-        <td>iphone</td>
-        <td>10</td>
-        <td>2.000,00</td>
-        
-      </tr>
-      <tr>
-      <td>#562437</td>
-        <td>iphone</td>
-        <td>10</td>
-        <td>2.000,00</td>
-      </tr>
-      <tr>
-       <td>#545744</td>
-        <td>iphone</td>
-        <td>10</td>
-        <td>2.000,00</td>
-      </tr>
-      <tr>
-       <td>#56654</td>
-        <td>iphone</td>
-        <td>10</td>
-        <td>2.000,00</td>
-      </tr>
-    </tbody>
-  </table>
+<?php
+
+include('functionHome.php');
+if ($result_query  == null) {
+	echo "Erro: Nenhum registro encontrado!" . $produtos_erro;
+	} else{
+
+    //laço de repetição para criar a tabela de produtos
+	while($produtos = mysqli_fetch_array($result_query)):
+
+    //Pegando valores do arrray
+    $id_produto = $produtos[0];
+    $produto = $produtos[1];
+    $descricao = $produtos[2];
+    $tipo = $produtos[3];
+    $valor = $produtos[4];
+    $quantidade = $produtos[5];
+    $data = $produtos[6];
+
+?>
+<table class="table">
+			<thead class="table">
+        <tbody>
+          <tr class="table-ligth">
+            <th  class="scope-col" scope="col">N° Produto</th>
+            <th class="scope-col" scope="col">Produto</th>
+            <th class="scope-col" scope="col">Descrição</th>
+            <th class="scope-col" scope="col">Tipo</th>
+            <th class="scope-col" scope="col">Valor</th>
+            <th class="scope-col" scope="col">Quantidade</th>
+            <th class="scope-col" scope="col">Ver</th>
+            <th class="scope-col" scope="col">Editar</th>
+          </tr>
+            <tr>
+              <th scope='row'><?php echo $id_produto; ?></th>
+                <td><?php echo $produto;    ?></td>
+                <td><?php echo $descricao;  ?></td>
+                <td><?php echo $tipo;       ?></td>
+                <td><?php echo $quantidade; ?></td>
+                <td><?php echo $data;       ?></td>
+                <td class='acoes'><a href='detalhesPedidos.php'><button type='button'name="btnVizualizar" class='btn btn-primary' value="$id_produto">Visualizar</button></a></td>
+                <td class='acoes'><a href='views/editar-pedidos.php?numpedido=$id_produto'><button type='button' class='btn btn-warning'>Editar</button></a></td>
+            </tr>
+<?php endwhile; } ?>
+      </tbody>
+    </table>
+</table>
 </div>
 </body>
 </html>
