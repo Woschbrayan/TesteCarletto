@@ -29,24 +29,26 @@
           box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 30%);
         }
         .menu{
-          margin: 2%;
+          margin: 2%; 
+          column-gap: 5%;
         }
-
-        
-        
-        
+        .btn-group{
+          column-gap: 5%;
+          width:50%;
+        }
+ 
         
   </style>
 </head>
 <body>
 <div class="containerPrincipal">
-<div class="menu">
-<div class="btn-group">
-<a href="cadastrarProduto.php">  <button type="button" class="btn btn-primary">Cadastrar Produto</button></a>
-<a href="meuPerfil.php"><button type="button" class="btn btn-primary">Meu perfil</button></a> 
-<a href="alterarSenha.php"><button type="button" class="btn btn-primary">Alterar Senha</button></a>
-</div>
-</div>
+  <div class="menu">
+    <div class="btn-group">
+        <a href="cadastrarProduto.php">  <button type="button" class="btn btn-primary">Cadastrar Produto</button></a>
+        <a href="meuPerfil.php"><button type="button" class="btn btn-primary">Meu perfil</button></a> 
+        <a href="alterarSenha.php"><button type="button" class="btn btn-primary">Alterar Senha</button></a>
+    </div>
+  </div>
 
 
           
@@ -82,7 +84,7 @@ if ($result_query  == null) {
             <th class="scope-col" scope="col">Valor</th>
             <th class="scope-col" scope="col">Quantidade</th>
             <th class="scope-col" scope="col">Data</th>
-            <th class="scope-col" scope="col">Ver</th>
+            <th class="scope-col" scope="col">Vizualizar</th>
             <th class="scope-col" scope="col">Editar</th>
           </tr>
             <tr>
@@ -93,8 +95,8 @@ if ($result_query  == null) {
               <td><?php echo $quantidade; ?></td>
               <td><?php echo $produto;    ?></td>
               <td><?php echo $data;       ?></td>
-              <td class='acoes'>  <a href="detalhesProdutos.php?numPedido=<?php echo$id_produto;?>"><button type='button'name="btnVizualizar" class='btn btn-primary'>Visualizar</button></a></td>
-              <td class='acoes'><a href='views/editar-pedidos.php?numpedido=$id_produto'><button type='button' class='btn btn-warning'>Editar</button></a></td>
+              <td class='acoes'>  <a href="detalhesProdutos.php?numproduto=<?php echo$id_produto;?>"><button type='button'name="btnVizualizar" class='btn btn-primary'>Visualizar</button></a></td>
+              <td class='acoes'><a href='editarProduto.php?numproduto=<?php echo$id_produto;?>'><button type='button' class='btn btn-secondary'>Editar</button></a></td>
             </tr>
 <?php endwhile; } ?>
       </tbody>

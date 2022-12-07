@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
   include('Sql.php');
-                $id_produto = $_GET['numPedido'] ??  NULL;
+                $id_produto = $_GET['numproduto'] ??  NULL;
                 $querySelect = "SELECT * FROM produto WHERE id_produto = $id_produto";
                 
-  try{ 
+  try{           
                 $result_query = mysqli_query($mysqli, $querySelect);
                 
   }catch(\Exception $e){
@@ -41,73 +41,66 @@
     font-family: 'Poppins';         
     margin: 0;           
     padding: 0; 
-    text-align: center;
-  }
-  .descricao{
-    display: flex;
-    column-gap: 5%;
-  }
-     
-  .cotainerPrincipal{
-    width: 50%;
-    height: 38%;
-    position: relative;  
-    border-radius: 6px;
-    box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 30%);
-    color: #1572a1;
-    text-align: center;
   }
 
-  .botoes{
+  .containerPrincipal{
+    position: relative;
+    left: 30%;
+    width: 50%;
+    height: 38%;
+    border-radius: 6px;
+    box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 30%);
+  }
+  
+  .inContainer{
+    position: relative;
     display: flex;
-    column-gap: 5%;
-    margin-left: 35%;
   }
-  .tableProdutos{
-    background-color: #1572a1;
-    color: white;
+  label, h1 {
+    color: #1572a1;
   }
+
   </style>
 </head>
 <body>
+  <div class="containerPrincipal">
 
-<div class="cotainerPrincipal">
-             
-<table class="table">
-<thead class="table">
-        <tbody>
-          <tr class="tableProdutos">
-            <th  class="scope-col" scope="col">ID</th>
-            <th class="scope-col" scope="col">Produto</th>
-            <th class="scope-col" scope="col">Descrição</th>
-            <th class="scope-col" scope="col">Tipo</th>
-            <th class="scope-col" scope="col">Valor</th>
-            <th class="scope-col" scope="col">Quantidade</th>
-            <th class="scope-col" scope="col">Detalhes</th>
-          </tr>
-            <tr>
-               <td><?php       echo $id_produto;    ?></td>
-               <td><?php       echo $produto;       ?></td>
-               <td><?php       echo $descricao;     ?></td>
-               <td><?php       echo $tipo;          ?></td>
-               <td><?php       echo $valor;         ?></td>
-               <td><?php       echo $quantidade;    ?></td>
-               <td><?php       echo $detalhes;      ?></td>
-               
+    <div class="cabecalhoDetalhes"> <h1 style="text-align: center;">Detalhes</h1></div> 
+      <div class="inContainer">
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label" >Produto:</label>
+              <?php  echo $produto;  ?></br>
 
+              <label for="inputPassword4" class="form-label" >Descrição:</label>
+              <?php  echo $descricao;  ?></br>
 
-           </tr>
-      </tbody>
-    </table>
-</table>
-<div class="botoes">
-<button type='button'name="btnVizualizar" id="btnDeletar" class='btn btn-danger' <?php deletar() ?> >Deletar</button>
-</div>
+              <label for="inputCity" class="form-label">Tipo:</label>
+              <?php  echo $tipo;  ?></br>
 
-</div>
+              <label for="inputPassword4" class="form-label" >Detalhes:</label>
+              <?php  echo $detalhes;  ?></br>
+            </div>
+
+            <div class="col-md-6">
+
+              <label class="form-label" >Valor:</label>
+              <?php  echo $valor;  ?></br>
+            
+              
+              <label class="form-label">Qtde:</label>
+              <?php  echo $quantidade;  ?></br>
+
+              <label class="form-label">Data:</label>
+              <?php  echo $data;  ?></br>
+
+            </div>
 
 
-
-</div>  
+       
+      </div>
+      <a href="home.php"><button type="submit" class="btn btn-primary"> Voltar</button> </a> 
+      </div>
+    
+  </div>
 </body>
 </html>
