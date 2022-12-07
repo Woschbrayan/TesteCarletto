@@ -9,18 +9,17 @@ $descricao =$_POST['descricao'] ?? null;
 $tipo = $_POST['tipo'] ?? null;
 $valor =$_POST['valor'] ?? null;
 $qtd = $_POST['qtd'] ?? null;
+$detalhes = $_POST['detalhes'] ?? null;
 
 //sql de para inserir no banco de dados
-$sql ="INSERT INTO produto (id_produto, nome_produto, descricao_produto, tipo_produto, valor_produto, quantidade_produto, data_registro) 
-VALUE (default,'$produto', '$descricao', '$tipo', $valor, $qtd, CURTIME())";
+$sql ="INSERT INTO produto VALUES (default,'$produto', '$descricao', '$tipo', $valor, $qtd, CURTIME(), '$detalhes')";
 
-//tentar executar o sql caso de errado erxibir erro
-try{
-               mysqli_query($mysqli,$sql);  
-             //header('Location: ../TesteCarlettoCrud/cadastrarProduto.php/'); retornar a pagina home
-exit;       
-}catch(\Exception $e){
-               echo"erro: ".$e;
+mysqli_query($mysqli,$sql);  
+
+if(mysqli_insert_id($mysqli)){
+	echo "<script>alert('Produto inserido com sucesso');</script>";
+}else{
+  echo "<script>alert('Erro ao inserir o Produto');</script>";
 }
 
 ?>

@@ -39,6 +39,7 @@
       border-radius: 6px;
       box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 30%);
       color: #1572a1;
+      padding: 1%;
                     
     }
     .cabecalhoCad{
@@ -52,7 +53,7 @@
       margin: 5%;
     }
     #selectTipo{
-      width: 20%; 
+      width: 40%; 
     }
     .col-12{
       display: flex;
@@ -98,6 +99,11 @@
           <option value="alimento">Alimento</option>
           <option value="moda">Moda</option>
         </select>
+        
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label" >Detalhes</label>
+      <input type="text" class="form-control" id="inputPassword4" name="detalhes">
     </div>
 
         <button type="submit" class="btn btn-primary">Cadastrar</button>

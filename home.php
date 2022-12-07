@@ -9,37 +9,37 @@
                <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
                <title>Home</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-      body{
-        font-family: 'Poppins';         
-        margin: 0;           
-        padding: 0; 
-      }
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body{
+          font-family: 'Poppins';         
+          margin:0;           
+          padding: 0; 
+        }
+        .menu{
+          position: relative;
+          left: 10%;
+        }
+        .containerPrincipal{
+          display: list-item;
+          position: relative;
+        }
+        .container{
+          border-radius: 6px;
+          box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 30%);
+        }
+        .menu{
+          margin: 2%;
+        }
 
-      .menu{
-        text-align: center;
-        text-align: center;
-        position: fixed;
-      }
-      table{
-        margin: 5%;
-      }
-      .btn-group{
-      position: relative;
-      display: -ms-inline-flexbox;
-      display: inline-grid;
-      vertical-align: middle;
-      }   
-      .btn-primary{
-        margin: 5%;
-      }
-      
-      
-</style>
+        
+        
+        
+        
+  </style>
 </head>
 <body>
-
+<div class="containerPrincipal">
 <div class="menu">
 <div class="btn-group">
 <a href="cadastrarProduto.php">  <button type="button" class="btn btn-primary">Cadastrar Produto</button></a>
@@ -64,9 +64,9 @@ if ($result_query  == null) {
     //Pegando valores do arrray
     $id_produto = $produtos[0];
     $produto = $produtos[1];
+    $valor = $produtos[4];
     $descricao = $produtos[2];
     $tipo = $produtos[3];
-    $valor = $produtos[4];
     $quantidade = $produtos[5];
     $data = $produtos[6];
 
@@ -74,30 +74,33 @@ if ($result_query  == null) {
 <table class="table">
 			<thead class="table">
         <tbody>
-          <tr class="table-ligth">
+          <tr class="table">
             <th  class="scope-col" scope="col">N° Produto</th>
             <th class="scope-col" scope="col">Produto</th>
             <th class="scope-col" scope="col">Descrição</th>
             <th class="scope-col" scope="col">Tipo</th>
             <th class="scope-col" scope="col">Valor</th>
             <th class="scope-col" scope="col">Quantidade</th>
+            <th class="scope-col" scope="col">Data</th>
             <th class="scope-col" scope="col">Ver</th>
             <th class="scope-col" scope="col">Editar</th>
           </tr>
             <tr>
               <th scope='row'><?php echo $id_produto; ?></th>
-                <td><?php echo $produto;    ?></td>
-                <td><?php echo $descricao;  ?></td>
-                <td><?php echo $tipo;       ?></td>
-                <td><?php echo $quantidade; ?></td>
-                <td><?php echo $data;       ?></td>
-                <td class='acoes'><a href='detalhesPedidos.php'><button type='button'name="btnVizualizar" class='btn btn-primary' value="$id_produto">Visualizar</button></a></td>
-                <td class='acoes'><a href='views/editar-pedidos.php?numpedido=$id_produto'><button type='button' class='btn btn-warning'>Editar</button></a></td>
+              <td><?php echo $descricao;  ?></td>
+              <td><?php echo $tipo;       ?></td>
+              <td><?php echo $valor;      ?></td>
+              <td><?php echo $quantidade; ?></td>
+              <td><?php echo $produto;    ?></td>
+              <td><?php echo $data;       ?></td>
+              <td class='acoes'>  <a href="detalhesProdutos.php?numPedido=<?php echo$id_produto;?>"><button type='button'name="btnVizualizar" class='btn btn-primary'>Visualizar</button></a></td>
+              <td class='acoes'><a href='views/editar-pedidos.php?numpedido=$id_produto'><button type='button' class='btn btn-warning'>Editar</button></a></td>
             </tr>
 <?php endwhile; } ?>
       </tbody>
     </table>
 </table>
+</div>
 </div>
 </body>
 </html>
