@@ -12,8 +12,10 @@ try{
 
   //Se o try não der certo exibe erro
   echo"erro: ".$e;
-
   }
+
+
+
 
 $selectProdutos = mysqli_fetch_array($result_query);     
 $idproduto = $selectProdutos[0];
