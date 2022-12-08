@@ -11,13 +11,16 @@ $valor =$_POST['valor'] ?? null;
 $qtd = $_POST['qtd'] ?? null;
 $detalhes = $_POST['detalhes'] ?? null;
 
+$valorFormatado = intval($valor);
+
 //sql de para inserir no banco de dados
-$sql ="INSERT INTO produto VALUES (default,'$produto', '$descricao', '$tipo', $valor, $qtd, CURTIME(), '$detalhes')";
+$sql ="INSERT INTO produto VALUES (default,'$produto', '$descricao', '$tipo', $valorFormatado, $qtd, CURTIME(), '$detalhes')";
 
 mysqli_query($mysqli,$sql);  
 
 if(mysqli_insert_id($mysqli)){
 	echo "<script>alert('Produto inserido com sucesso');</script>";
+  
 }else{
   echo "<script>alert('Erro ao inserir o Produto');</script>";
 }

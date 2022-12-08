@@ -30,8 +30,9 @@ CREATE TABLE `produto` (
   `valor_produto` int(11) NOT NULL,
   `quantidade_produto` int(11) NOT NULL,
   `data_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `detalhes_produto` longtext NOT NULL,
   PRIMARY KEY (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +41,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (1,'IPHONE','X','ELETRONICO',12,12,'2022-12-06 18:12:18'),(2,'IPHONE','X','ELETRONICO',12,12,'2022-12-06 18:12:19'),(3,'IPHONE','X','ELETRONICO',12,12,'2022-12-06 18:12:19'),(4,'bom bom','bombom','alimento',123,123,'2022-12-06 18:28:48'),(5,'Lean','Sprit Coden','alimento',10,12,'2022-12-06 19:27:05'),(6,'wete','terwtw','eletronicos',2134,24,'2022-12-06 20:24:26');
+INSERT INTO `produto` VALUES (1,'Iphone','Pro Max','eletronicos',1,20,'2022-12-08 14:17:33','iphone semiusados'),(2,'Xaiomi','Xaiomi note 10s','eletronicos',1,20,'2022-12-08 14:17:14','Novos');
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-06 17:44:49
+-- Dump completed on 2022-12-08 11:21:33

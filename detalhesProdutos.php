@@ -45,7 +45,8 @@
 
   .containerPrincipal{
     position: relative;
-    left: 30%;
+    left: 20%;
+    margin-top: 1%;
     width: 50%;
     height: 38%;
     border-radius: 6px;
@@ -55,9 +56,17 @@
   .inContainer{
     position: relative;
     display: flex;
+    padding: 2%;
   }
-  label, h1 {
+  label{
     color: #1572a1;
+    margin: 2%;
+  }
+  .cabecalhoDetalhes{
+    background-color: #1572a1;
+  }
+  button{
+    margin: 5%;
   }
 
   </style>
@@ -65,7 +74,7 @@
 <body>
   <div class="containerPrincipal">
 
-    <div class="cabecalhoDetalhes"> <h1 style="text-align: center;">Detalhes</h1></div> 
+    <div class="cabecalhoDetalhes"> <h1 style="text-align: center; color:white;">Detalhes</h1></div> 
       <div class="inContainer">
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label" >Produto:</label>

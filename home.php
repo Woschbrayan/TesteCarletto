@@ -45,8 +45,7 @@
   <div class="menu">
     <div class="btn-group">
         <a href="cadastrarProduto.php">  <button type="button" class="btn btn-primary">Cadastrar Produto</button></a>
-        <a href="meuPerfil.php"><button type="button" class="btn btn-primary">Meu perfil</button></a> 
-        <a href="alterarSenha.php"><button type="button" class="btn btn-primary">Alterar Senha</button></a>
+     
     </div>
   </div>
 
@@ -57,7 +56,7 @@
 
 include('functionHome.php');
 if ($result_query  == null) {
-	echo "Erro: Nenhum registro encontrado!" . $produtos_erro;
+	echo "<h1>Erro: Nenhum registro encontrado!</h1>" . $produtos_erro;
 	} else{
 
     //laço de repetição para criar a tabela de produtos
@@ -95,8 +94,8 @@ if ($result_query  == null) {
               <td><?php echo $quantidade; ?></td>
               <td><?php echo $produto;    ?></td>
               <td><?php echo $data;       ?></td>
-              <td class='acoes'>  <a href="detalhesProdutos.php?numproduto=<?php echo$id_produto;?>"><button type='button'name="btnVizualizar" class='btn btn-primary'>Visualizar</button></a></td>
-              <td class='acoes'><a href='editarProduto.php?numproduto=<?php echo$id_produto;?>'><button type='button' class='btn btn-secondary'>Editar</button></a></td>
+              <td class='acoes'>  <a href="/TesteCarlettoCrud/detalhesProdutos.php?numproduto=<?php echo$id_produto;?>"><button type='button'name="btnVizualizar" class='btn btn-primary'>Visualizar</button></a></td>
+              <td class='acoes'><a href='/TesteCarlettoCrud/editarProduto.php?numproduto=<?php echo$id_produto;?>'><button type='button' class='btn btn-secondary'>Editar</button></a></td>
             </tr>
 <?php endwhile; } ?>
       </tbody>

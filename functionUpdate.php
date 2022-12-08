@@ -1,7 +1,6 @@
 <?php
 
 include('Sql.php');
-include('editarProduto.php');
 
 //recebendo os valores passado no arquivo anterior
 $id_produto = $_POST['idProduto'] ??  null;
@@ -26,9 +25,12 @@ $sql = "UPDATE produto SET
 //Try Catch
 try{
                mysqli_query($mysqli,$sql);
-              
-}catch(\Exception $e){
-               echo"erro: ".$e;
-}
+               echo "<script>alert('Produto Atualizado Com Sucesso');</script>";    
+               header("Location: /TesteCarlettoCrud/home.php/");
                
+}catch(\Exception $e){
+               echo "<script>alert('Erro ao Atualizar Produto');</script>";
+}
+
+          
 ?>
